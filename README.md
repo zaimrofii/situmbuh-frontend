@@ -1,14 +1,16 @@
 #  siTumbuh Frontend
 
-The **siTumbuh Frontend** is a modern, responsive web application for teachers and parents to monitor and evaluate children's development in real-time. Built with **React**, **Tailwind CSS**, Next.js and integrates seamlessly with our Django backend.
+The **siTumbuh Frontend** is a modern, highly responsive web application for teachers and parents to monitor and evaluate children's development in real-time. Built with **Next.js**, **React**, and **Tailwind CSS**, it provides a seamless user experience across all screen sizes and integrates smoothly with our Django backend.
+
+
 
 ##  Features
 
 -  Student & Assesment management
 -  Student Attendance & Assesment feature
--  Real-time child development dashboard  
--  Daily and weekly reports  
--  AI-generated insights and suggestions  
+-  Real-time child development dashboard   
+-  AI-generated insights and suggestions
+-  Fully responsive across mobile, tablet, and desktop
 
 
 ##  Tech Stack
