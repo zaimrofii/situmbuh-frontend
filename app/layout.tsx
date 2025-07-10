@@ -1,12 +1,16 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import SplitLayout from "./components/SplitLayout";
+import AttendanceClient from "@/app/components/attendance/attendancePage";
+import PopUpWraper from "@/app/components/popUp/popUpWraper";
+import Menu from "@/app/components/Menu/Menu";
+import AddAssesmentWrapper from "./AddAssesment/ui/AddAssesmentWrapper";
+import AddStudentForm from "./StudentManagement/ui/CreateStudent";
 
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -19,15 +23,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen`}
       >
-        {children}
+        <div className="hidden md:block h-full">
+          <SplitLayout
+            leftContent={<AttendanceClient />}
+            rightContent={children}
+          />
+        </div>
+
+        {/* Mobile layout fallback (jika perlu) */}
+        <div className="block md:hidden h-full overflow-hidden">{children}</div>
+
+        <PopUpWraper />
+        <Menu />
+        <AddAssesmentWrapper />
+        <AddStudentForm />
       </body>
     </html>
   );
